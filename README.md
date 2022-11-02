@@ -47,7 +47,7 @@ enum e_some_enum {
     SOME_SHIT
 };
 
-void c_self_class::test_func(const int index) {
+void c_self_class::test_func() {
     const auto local = globals::m_local
     static const auto setup_bones_sig = SIG("client.dll", "55 8B EC 83 E4 F0 B8 D8").cast<void**>();
 }
