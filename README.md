@@ -1,4 +1,4 @@
-# potroshitel_sdk ![CS:GO](https://img.shields.io/badge/game-CS%3AGO-orange?style=flat) ![LANG](https://img.shields.io/badge/language-C%2B%2B-brightgreen?style=flat )
+# potroshitel_sdk ![CS:GO](https://img.shields.io/badge/game-CS%3AGO-orange?style=flat) ![LANG](https://img.shields.io/badge/language-C%2B%2B-brightgreen?style=flat ) ![LANG](https://img.shields.io/badge/language-C-red?style=flat )
 a clean sdk which has everything you need for a fully featured internal cheat
 
 # features
