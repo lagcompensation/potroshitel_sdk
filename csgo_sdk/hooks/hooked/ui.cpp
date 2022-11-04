@@ -4,9 +4,6 @@
 long __stdcall hooks::ui::present::hook(IDirect3DDevice9* device, RECT* src_rect, RECT* dest_rect, HWND dest_wnd_override, RGNDATA* dirty_region) {
 	static const auto original = m_d3d_device->get_original<fn>(17u);
 
-	if (!ImGui::GetCurrentContext())
-		return original(device, src_rect, dest_rect, dest_wnd_override, dirty_region);
-
 	IDirect3DVertexDeclaration9* vert_declaration;
 	IDirect3DVertexShader9* vert_shader;
 	DWORD old_d3drs_colorwriteenable;
