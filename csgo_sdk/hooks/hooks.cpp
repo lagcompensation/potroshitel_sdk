@@ -19,7 +19,7 @@ namespace hooks {
 
 		m_client = std::make_unique<memory::hook_t>(interfaces::m_client_dll);
 
-		m_client->hook(22u, client::create_move::hook);
+		m_client->hook(22u, client::create_move::proxy);
 
 		/* // // // // // // // // // // // // // // // // // // // // // // // */
 	}
