@@ -21,16 +21,9 @@ void __stdcall hooks::client::create_move::hook(int sequence_number, float input
 
 	const auto old_angles = cmd->m_view_angles;
 
-	hacks::g_move->handle(cmd);
-
 	hacks::g_prediction->update();
-	hacks::g_prediction->start(cmd);
-
-	/* here some stuff.... */
-	/* but i not have engine prediction lol */
-	/* i add it in next update */
-
-	hacks::g_prediction->end(cmd);
+	
+	hacks::g_move->handle(cmd);
 
 	cmd->m_view_angles.sanitize();
 
