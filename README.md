@@ -5,7 +5,7 @@ a clean sdk which has everything you need for a fully featured internal cheat
 - engine_prediction
 - bhop
 - movement fix
-- fn1va hash
+- hashing fnv1a
 
 # other
 - easy to use n understand project structure & code
