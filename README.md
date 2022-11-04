@@ -2,9 +2,10 @@
 a clean sdk which has everything you need for a fully featured internal cheat
 
 # features
-- engine_prediction ( but not fully )
+- engine_prediction
 - bhop
 - movement fix
+- fn1va hash
 
 # other
 - easy to use n understand project structure & code
