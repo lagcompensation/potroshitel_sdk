@@ -46,7 +46,7 @@ __declspec (naked) void __stdcall hooks::client::create_move::proxy(int sequence
 		push dword ptr[ebp + 12]
 		push dword ptr[ebp + 8]
 
-		call hooks::client::create_move::hook
+		call hook
 
 		pop ebx
 
