@@ -19,7 +19,7 @@ unsigned long __stdcall init(LPVOID module) {
 		memory::get_all_modules();
 
 		std::this_thread::sleep_for(std::chrono::milliseconds(200));
-	} while (memory::m_modules.find(FNV1A("serverbrowser.dll")) == memory::m_modules.end());
+	} while (memory::m_modules.find(HASH("serverbrowser.dll")) == memory::m_modules.end());
 
 	interfaces::init();
 

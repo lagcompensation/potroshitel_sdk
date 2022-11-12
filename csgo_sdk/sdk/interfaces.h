@@ -4,7 +4,7 @@
 namespace interfaces {
 	template <typename T>
 	__forceinline T get(uint32_t module_hash, uint32_t interface_hash) {
-		auto addr = memory::get_export(module_hash, FNV1A("CreateInterface"));
+		auto addr = memory::get_export(module_hash, HASH("CreateInterface"));
 
 		if (*addr.offset(0x4) == 0xE9
 			&& *addr.self_rel32(0x5).offset(0x5) == 0x35) {
@@ -22,7 +22,7 @@ namespace interfaces {
 		for (; addr; addr = *addr.offset<memory::address_t*>(0x8)) {
 			const auto name = *addr.offset<const char**>(0x4);
 			if (!name
-				|| FNV1A_RT(name) != interface_hash)
+				|| HASH_RT(name) != interface_hash)
 				continue;
 
 			return reinterpret_cast<T>((*addr.cast<create_fn_t*>())());

@@ -2,7 +2,10 @@
 #include "../../menu/menu.h"
 
 long __stdcall hooks::ui::present::hook(IDirect3DDevice9* device, RECT* src_rect, RECT* dest_rect, HWND dest_wnd_override, RGNDATA* dirty_region) {
-	static const auto original = m_d3d_device->get_original<fn>(17u);
+	static const auto original = m_d3d_device->get_original<fn>(ui::present::index);
+
+	if (!ImGui::GetCurrentContext())
+		return original(device, src_rect, dest_rect, dest_wnd_override, dirty_region);
 
 	IDirect3DVertexDeclaration9* vert_declaration;
 	IDirect3DVertexShader9* vert_shader;
@@ -12,12 +15,12 @@ long __stdcall hooks::ui::present::hook(IDirect3DDevice9* device, RECT* src_rect
 	device->GetVertexDeclaration(&vert_declaration);
 	device->GetVertexShader(&vert_shader);
 
-	device->SetRenderState(D3DRS_COLORWRITEENABLE, 0xffffffff);
+	device->SetRenderState(D3DRS_COLORWRITEENABLE, 0xFFFFFFFF);
 	device->SetRenderState(D3DRS_SRGBWRITEENABLE, false);
-	device->SetSamplerState(NULL, D3DSAMP_ADDRESSU, D3DTADDRESS_WRAP);
-	device->SetSamplerState(NULL, D3DSAMP_ADDRESSV, D3DTADDRESS_WRAP);
-	device->SetSamplerState(NULL, D3DSAMP_ADDRESSW, D3DTADDRESS_WRAP);
-	device->SetSamplerState(NULL, D3DSAMP_SRGBTEXTURE, NULL);
+	device->SetSamplerState(0, D3DSAMP_ADDRESSU, D3DTADDRESS_WRAP);
+	device->SetSamplerState(0, D3DSAMP_ADDRESSV, D3DTADDRESS_WRAP);
+	device->SetSamplerState(0, D3DSAMP_ADDRESSW, D3DTADDRESS_WRAP);
+	device->SetSamplerState(0, D3DSAMP_SRGBTEXTURE, 0);
 
 	ImGui_ImplDX9_NewFrame();
 	ImGui_ImplWin32_NewFrame();
@@ -42,7 +45,7 @@ long __stdcall hooks::ui::present::hook(IDirect3DDevice9* device, RECT* src_rect
 }
 
 long __stdcall hooks::ui::reset::hook(IDirect3DDevice9* device, D3DPRESENT_PARAMETERS* present_params) {
-	static const auto original = m_d3d_device->get_original<fn>(16u);
+	static const auto original = m_d3d_device->get_original<fn>(ui::reset::index);
 
 	ImGui_ImplDX9_InvalidateDeviceObjects();
 
@@ -54,9 +57,9 @@ long __stdcall hooks::ui::reset::hook(IDirect3DDevice9* device, D3DPRESENT_PARAM
 }
 
 void __fastcall hooks::ui::lock_cursor::hook(i_surface* ecx, void* edx) {
-	static const auto original = m_surface->get_original<fn>(67u);
+	static const auto original = m_surface->get_original<fn>(ui::lock_cursor::index);
 
-	if (input::m_opened) {
+	if (menu::m_opened) {
 		ecx->unlock_cursor();
 		return;
 	}

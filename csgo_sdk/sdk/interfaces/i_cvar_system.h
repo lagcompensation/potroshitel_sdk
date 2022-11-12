@@ -27,7 +27,7 @@ public:
 
 	__forceinline c_cvar* find_var(uint32_t hash) {
 		for (auto it = m_cmd_list_start; it; it = it->m_next) {
-			if (FNV1A_RT(it->m_name) != hash)
+			if (HASH_RT(it->m_name) != hash)
 				continue;
 
 			return it;

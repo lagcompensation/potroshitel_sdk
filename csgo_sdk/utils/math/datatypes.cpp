@@ -97,7 +97,7 @@ matrix3x4_t qangle_t::matrix() const {
 	);
 }
 
-vec3_t qangle_t::vector(vec3_t* right, vec3_t* up) const {
+vec3_t qangle_t::vectors(vec3_t* right, vec3_t* up) const {
 	vec3_t ret = vec3_t();
 	vec3_t cos, sin;
 

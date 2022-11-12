@@ -370,7 +370,7 @@ struct qangle_t {
 
 	matrix3x4_t matrix() const;
 
-	vec3_t vector(vec3_t* right = nullptr, vec3_t* up = nullptr) const;
+	vec3_t vectors(vec3_t* right = nullptr, vec3_t* up = nullptr) const;
 
 	__forceinline float length_sqr() const { return x * x + y * y + z * z; }
 

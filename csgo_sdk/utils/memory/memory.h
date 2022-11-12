@@ -243,8 +243,8 @@ namespace memory {
 	inline std::unordered_map<uint32_t, module_t> m_modules;
 }
 
-#define SIG(module_name, sig) memory::find_module_sig(FNV1A(module_name), sig)
-#define EXPORT(module_name, export_name) memory::get_export(FNV1A(module_name), FNV1A(export_name))
+#define SIG(module_name, sig) memory::find_module_sig(HASH(module_name), sig)
+#define EXPORT(module_name, export_name) memory::get_export(HASH(module_name), HASH(export_name))
 
 #define VFUNC(func, index, type, ...) __forceinline auto func { return memory::get_vfunc<type>(this, index)(this, __VA_ARGS__); };
 #define VFUNC_SIG(func, module_name, sig, type, ...) __forceinline auto func { static const auto fn = SIG(module_name, sig).cast<type>(); return fn(this, __VA_ARGS__); };

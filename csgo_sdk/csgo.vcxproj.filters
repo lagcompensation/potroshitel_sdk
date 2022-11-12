@@ -70,7 +70,13 @@
     <ClCompile Include="hacks\move\move.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="local\prediction.cpp">
+    <ClCompile Include="hacks\models\models.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="hooks\hooked\render.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="local_player\local_player.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -285,10 +291,12 @@
     <ClInclude Include="menu\util\input.h" />
     <ClInclude Include="menu\menu.h" />
     <ClInclude Include="hooks\hooks.h" />
-    <ClInclude Include="utils\hashing\fnv1a.h" />
     <ClInclude Include="menu\util\cfg\cfg.h" />
     <ClInclude Include="hacks\hacks.h" />
     <ClInclude Include="hacks\move\move.h" />
-    <ClInclude Include="local\prediction.h" />
+    <ClInclude Include="utils\singleton.h" />
+    <ClInclude Include="hacks\models\models.h" />
+    <ClInclude Include="local_player\local_player.h" />
+    <ClInclude Include="utils\hash\fnv1a.h" />
   </ItemGroup>
 </Project>

@@ -6,7 +6,7 @@
 #include "math/datatypes.h"
 #include "math/math.h"
 
-#include "hashing/fnv1a.h"
+#include "hash/fnv1a.h"
 
 #include "memory/memory.h"
 
@@ -20,3 +20,5 @@
 
 #include "netvars/data_map.h"
 #include "netvars/netvars.h"
+
+#include "singleton.h"

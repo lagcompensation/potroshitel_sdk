@@ -103,11 +103,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="globals.cpp" />
+    <ClCompile Include="hacks\models\models.cpp" />
     <ClCompile Include="hacks\move\move.cpp" />
     <ClCompile Include="hooks\hooked\client.cpp" />
+    <ClCompile Include="hooks\hooked\render.cpp" />
     <ClCompile Include="hooks\hooked\ui.cpp" />
     <ClCompile Include="hooks\hooks.cpp" />
-    <ClCompile Include="local\prediction.cpp" />
+    <ClCompile Include="local_player\local_player.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu\menu.cpp" />
     <ClCompile Include="menu\util\imgui\imgui.cpp" />
@@ -129,9 +131,10 @@
     <ClInclude Include="common_includes.h" />
     <ClInclude Include="globals.h" />
     <ClInclude Include="hacks\hacks.h" />
+    <ClInclude Include="hacks\models\models.h" />
     <ClInclude Include="hacks\move\move.h" />
     <ClInclude Include="hooks\hooks.h" />
-    <ClInclude Include="local\prediction.h" />
+    <ClInclude Include="local_player\local_player.h" />
     <ClInclude Include="menu\menu.h" />
     <ClInclude Include="menu\util\cfg\cfg.h" />
     <ClInclude Include="menu\util\imgui\freetype\headers\config\ftconfig.h" />
@@ -339,7 +342,8 @@
     <ClInclude Include="utils\memory\memory.h" />
     <ClInclude Include="utils\netvars\data_map.h" />
     <ClInclude Include="utils\netvars\netvars.h" />
-    <ClInclude Include="utils\hashing\fnv1a.h" />
+    <ClInclude Include="utils\hash\fnv1a.h" />
+    <ClInclude Include="utils\singleton.h" />
     <ClInclude Include="utils\utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

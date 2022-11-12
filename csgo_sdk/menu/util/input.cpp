@@ -1,5 +1,6 @@
 #include "../../utils/utils.h"
 #include "../../sdk/interfaces.h"
+#include "../menu.h"
 
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
@@ -19,9 +20,9 @@ namespace input {
 	long __stdcall wnd_proc(HWND hwnd, uint32_t msg, uint32_t w_param, uint32_t l_param) {
 		if (msg == WM_KEYUP 
 			&& w_param == VK_INSERT)
-			m_opened = !m_opened;
+			menu::m_opened = !menu::m_opened;
 
-		if (m_opened) {
+		if (menu::m_opened) {
 			ImGui_ImplWin32_WndProcHandler(hwnd, msg, w_param, l_param);
 			return 1;
 		}
