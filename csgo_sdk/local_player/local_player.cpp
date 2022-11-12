@@ -43,8 +43,7 @@ void c_local_player::end() {
 	m_backup.restore();
 }
 
-c_cs_player* c_local_player::self()
-{
+c_cs_player* c_local_player::self() {
 	/* works fine but not good */
 	/* maybe i am wrong idk.. */
 	return m_local;
