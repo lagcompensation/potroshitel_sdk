@@ -4,8 +4,9 @@ a clean sdk which has everything you need for a fully featured internal cheat
 # features
 - engine_prediction
 - bhop
-- movement fix
-- hashing fnv1a
+- movement_fix
+- hash_fnv1a
+- player_chams
 
 # other
 - easy to use n understand project structure & code
@@ -15,6 +16,7 @@ a clean sdk which has everything you need for a fully featured internal cheat
 - present
 - lock_cursor
 - create_move
+- draw_model_execute
 
 # conventions
 prefix classes with 'c_', interfaces classes with 'i', enums with 'e_' and postfix structures with '_t'
@@ -49,7 +51,7 @@ enum e_some_enum {
 };
 
 void c_self_class::test_func() {
-    const auto local = globals::m_local
+    const auto local = local_player->self();
     static const auto setup_bones_sig = SIG("client.dll", "55 8B EC 83 E4 F0 B8 D8").cast<void**>();
 }
 ```
