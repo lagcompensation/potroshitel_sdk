@@ -30,6 +30,7 @@ void c_local_player::start(c_user_cmd* cmd) {
 	interfaces::m_prediction->setup_move(m_local, cmd, interfaces::m_move_helper, m_move_data);
 	interfaces::m_game_movement->process_movement(m_local, m_move_data);
 	interfaces::m_prediction->finish_move(m_local, cmd, m_move_data);
+	interfaces::m_move_helper->process_impacts();
 
 	interfaces::m_game_movement->finish_track_prediction_errors(m_local);
 	interfaces::m_move_helper->set_host(nullptr);
