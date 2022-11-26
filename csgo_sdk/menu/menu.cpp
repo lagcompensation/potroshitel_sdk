@@ -2,8 +2,7 @@
 
 const char* player_models_type[] {
 	"regular",
-	"flat",
-	"glow"
+	"flat"
 };
 
 namespace menu {
