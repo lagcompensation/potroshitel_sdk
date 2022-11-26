@@ -6,8 +6,7 @@ class c_models : public c_singleton<c_models> {
 private:
 	enum e_material_type {
 		MATERIAL_TYPE_REGULAR,
-		MATERIAL_TYPE_FLAT,
-		MATERIAL_TYPE_GLOW
+		MATERIAL_TYPE_FLAT
 	};
 
 	void override_material(const float* clr, bool ignorez);
@@ -18,8 +17,6 @@ private:
 
 	i_material* m_flat = nullptr;
 	i_material* m_flat_z = nullptr;
-
-	i_material* m_glow = nullptr;
 public:
 	c_models() {
 		m_regular = create_material("potroshitel_regular.vmt", "VertexLitGeneric", R"#("VertexLitGeneric" {
@@ -66,14 +63,6 @@ public:
 	"$halflambert"	"1"
 	"$nofog"		"1"
 	"$wireframe"	"0"
-})#");
-		m_glow = create_material("potroshitel_glow.vmt", "VertexLitGeneric", R"#("VertexLitGeneric" {
-	"$additive" "1"
-	"$envmap" "models/effects/cube_white"
-	"$envmaptint" "[1 1 1]"
-	"$envmapfresnel" "1"
-	"$envmapfresnelminmaxexp" "[0 1 2]"
-	"$alpha" "0.8" 
 })#");
 	}
 
