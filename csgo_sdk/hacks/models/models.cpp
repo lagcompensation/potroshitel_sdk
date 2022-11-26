@@ -21,9 +21,6 @@ void c_models::override_material(const float* clr, bool ignorez) {
 	case MATERIAL_TYPE_FLAT: 
 		material = ignorez ? m_flat_z : m_flat; 
 		break;
-	case MATERIAL_TYPE_GLOW:
-		material = m_glow;
-		break;
 	default:
 		break;
 	}
@@ -50,7 +47,6 @@ bool c_models::on_draw_model(i_model_render* ecx, void* context, const draw_mode
 
 	const auto player = reinterpret_cast<c_cs_player*>(entity);
 	if (!player->is_alive()
-		|| player == local_player->self()
 		|| !player->is_enemy(local_player->self()))
 		return true;
 
