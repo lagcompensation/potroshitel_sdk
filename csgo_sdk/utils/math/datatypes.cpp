@@ -127,7 +127,7 @@ vec3_t qangle_t::vectors(vec3_t* right, vec3_t* up) const {
 qangle_t matrix3x4_t::angle() const {
 	auto ret = qangle_t();
 
-	const auto dist = math::sqrt(m_value[0].x * m_value[0].x + m_value[1].x * m_value[1].x);
+	const auto dist = std::sqrt(m_value[0].x * m_value[0].x + m_value[1].x * m_value[1].x);
 
 	if (dist > 0.001f) {
 		ret.x = math::rad_to_deg(std::atan2(-m_value[2][0], dist));
