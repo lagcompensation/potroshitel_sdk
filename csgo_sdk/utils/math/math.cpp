@@ -2,7 +2,7 @@
 
 namespace math {
 	void sin_cos(float rad, float& sin, float& cos) {
-		sin = math::sin(rad);
-		cos = math::cos(rad);
+		sin = std::sin(rad);
+		cos = std::cos(rad);
 	}
 }
