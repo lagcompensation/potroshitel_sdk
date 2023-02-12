@@ -91,13 +91,13 @@ public:
 	VFUNC_SIG(get_weapon_prefix(), "client.dll", "53 56 57 8B F9 33 F6 8B 4F 60 8B 01 FF 90", const char*(__thiscall*)(void*))
 	
 	__forceinline float get_body_yaw_modifier() const {
-		const auto walk_speed = math::clamp(m_speed_as_portion_of_walk_speed, 0.f, 1.f);
+		const auto walk_speed = std::clamp(m_speed_as_portion_of_walk_speed, 0.f, 1.f);
 
 		const auto run_speed = ((m_walk_to_run_transition * -0.30000001f) - 0.19999999f) * walk_speed;
 		const auto modifier = run_speed + 1.f;
 
 		if (m_duck_amount > 0.f) {
-			const auto crouch_walk_speed = math::clamp(m_speed_as_portion_of_crouch_speed, 0.f, 1.f);
+			const auto crouch_walk_speed = std::clamp(m_speed_as_portion_of_crouch_speed, 0.f, 1.f);
 
 			return modifier + (m_duck_amount * crouch_walk_speed) * (0.5f - modifier);
 		}
