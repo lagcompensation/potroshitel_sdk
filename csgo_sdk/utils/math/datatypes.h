@@ -72,7 +72,7 @@ struct vec2_t {
 
 	__forceinline float length_sqr() const { return x * x + y * y; }
 
-	__forceinline float length() const { return math::sqrt(length_sqr()); }
+	__forceinline float length() const { return std::sqrt(length_sqr()); }
 
 	__forceinline float dot_product(const vec2_t& value) const { return x * value.x + y * value.y; }
 
@@ -186,9 +186,9 @@ struct vec3_t {
 
 	__forceinline float length_sqr() const { return x * x + y * y + z * z; }
 
-	__forceinline float length() const { return math::sqrt(length_sqr()); }
+	__forceinline float length() const { return std::sqrt(length_sqr()); }
 
-	__forceinline float length_2d() const { return math::sqrt(x * x + y * y); }
+	__forceinline float length_2d() const { return std::sqrt(x * x + y * y); }
 
 	__forceinline float dot_product(const vec3_t& value) const { return x * value.x + y * value.y + z * value.z; }
 
@@ -374,9 +374,9 @@ struct qangle_t {
 
 	__forceinline float length_sqr() const { return x * x + y * y + z * z; }
 
-	__forceinline float length() const { return math::sqrt(length_sqr()); }
+	__forceinline float length() const { return std::sqrt(length_sqr()); }
 
-	__forceinline float length_2d() const { return math::sqrt(x * x + y * y); }
+	__forceinline float length_2d() const { return std::sqrt(x * x + y * y); }
 
 	__forceinline bool is_valid() const { return std::isfinite(x) && std::isfinite(y) && std::isfinite(z); }
 
