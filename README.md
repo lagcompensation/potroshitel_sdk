@@ -6,7 +6,7 @@ a clean sdk which has everything you need for a fully featured internal cheat
 - bhop
 - movement fix
 - hash
-- player_chams
+- chams
 
 # other
 - easy to use n understand project structure & code
