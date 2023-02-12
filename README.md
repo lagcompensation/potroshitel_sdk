@@ -2,10 +2,10 @@
 a clean sdk which has everything you need for a fully featured internal cheat
 
 # features
-- engine_prediction
+- prediction
 - bhop
-- movement_fix
-- hash_fnv1a
+- movement fix
+- hash
 - player_chams
 
 # other
@@ -14,9 +14,9 @@ a clean sdk which has everything you need for a fully featured internal cheat
 # hooks
 - reset
 - present
-- lock_cursor
-- create_move
-- draw_model_execute
+- lock cursor
+- create move
+- draw model execute
 
 # conventions
 prefix classes with 'c_', interfaces classes with 'i', enums with 'e_' and postfix structures with '_t'
