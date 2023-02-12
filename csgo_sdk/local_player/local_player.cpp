@@ -22,7 +22,7 @@ void c_local_player::start(c_user_cmd* cmd) {
 	interfaces::m_prediction->m_first_time_predicted = false;
 
 	interfaces::m_global_vars->m_cur_time = TICKS_TO_TIME(m_local->get_tick_base());
-	interfaces::m_global_vars->m_frame_time = interfaces::m_prediction->m_engine_paused ? 0.f : interfaces::m_global_vars->m_interval_per_tick;
+	interfaces::m_global_vars->m_frame_time = interfaces::m_global_vars->m_interval_per_tick;
 
 	interfaces::m_move_helper->set_host(m_local);
 	interfaces::m_game_movement->start_track_prediction_errors(m_local);
@@ -30,9 +30,6 @@ void c_local_player::start(c_user_cmd* cmd) {
 	interfaces::m_prediction->setup_move(m_local, cmd, interfaces::m_move_helper, m_move_data);
 	interfaces::m_game_movement->process_movement(m_local, m_move_data);
 	interfaces::m_prediction->finish_move(m_local, cmd, m_move_data);
-		interfaces::m_move_helper->process_impacts(); {
-		m_local->set_think_handle(m_local->get_think_handle());
-	}
 
 	interfaces::m_game_movement->finish_track_prediction_errors(m_local);
 	interfaces::m_move_helper->set_host(nullptr);
