@@ -33,14 +33,14 @@ void init(LPVOID module) {
 	FreeLibraryAndExitThread(reinterpret_cast<HMODULE>(module), 0);
 }
 
-int __stdcall DllMain(HMODULE module, unsigned long reason_for_call, void* reserved) {
+BOOL APIENTRY DllMain(HMODULE module, DWORD reason_for_call, LPVOID reserved) {
 	if (reason_for_call != DLL_PROCESS_ATTACH)
-		return 0;
+		return FALSE;
 
 	DisableThreadLibraryCalls(module);
 
 	if (const auto thread = CreateThread(0, 0, static_cast<LPTHREAD_START_ROUTINE>(init), module, 0, 0))
 		CloseHandle(thread);
 
-	return 1;
+	return TRUE;
 }
