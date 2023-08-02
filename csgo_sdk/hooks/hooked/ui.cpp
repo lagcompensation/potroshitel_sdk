@@ -4,9 +4,6 @@
 long __stdcall hooks::ui::present::hook(IDirect3DDevice9* device, RECT* src_rect, RECT* dest_rect, HWND dest_wnd_override, RGNDATA* dirty_region) {
 	static const auto original = m_d3d_device->get_original<fn>(ui::present::index);
 
-	if (!ImGui::GetCurrentContext())
-		return original(device, src_rect, dest_rect, dest_wnd_override, dirty_region);
-
 	IDirect3DVertexDeclaration9* vert_declaration;
 	IDirect3DVertexShader9* vert_shader;
 	DWORD old_d3drs_colorwriteenable;
@@ -31,11 +28,6 @@ long __stdcall hooks::ui::present::hook(IDirect3DDevice9* device, RECT* src_rect
 	ImGui::EndFrame();
 	ImGui::Render();
 
-	if (device->BeginScene() == D3D_OK) {
-		ImGui_ImplDX9_RenderDrawData(ImGui::GetDrawData());
-		device->EndScene();
-	}
-
 	device->SetRenderState(D3DRS_COLORWRITEENABLE, old_d3drs_colorwriteenable);
 	device->SetRenderState(D3DRS_SRGBWRITEENABLE, true);
 	device->SetVertexDeclaration(vert_declaration);
@@ -59,10 +51,5 @@ long __stdcall hooks::ui::reset::hook(IDirect3DDevice9* device, D3DPRESENT_PARAM
 void __fastcall hooks::ui::lock_cursor::hook(i_surface* ecx, void* edx) {
 	static const auto original = m_surface->get_original<fn>(ui::lock_cursor::index);
 
-	if (menu::m_opened) {
-		ecx->unlock_cursor();
-		return;
-	}
-
-	original(ecx);
+	return menu::m_opened ? ecx->unlock_cursor() : original(ecx);
 }
