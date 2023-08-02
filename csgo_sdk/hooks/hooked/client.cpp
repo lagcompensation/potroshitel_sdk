@@ -41,9 +41,10 @@ void __stdcall hooks::client::create_move::hook(int sequence_number, float input
 
 	const auto old_angles = cmd->m_view_angles;
 
+	local_player->update();
+
 	movement->handle(cmd);
 
-	local_player->update();
 	local_player->start(cmd);
 
 	/* here some stuff... */
