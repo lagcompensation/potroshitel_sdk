@@ -28,6 +28,8 @@ long __stdcall hooks::ui::present::hook(IDirect3DDevice9* device, RECT* src_rect
 	ImGui::EndFrame();
 	ImGui::Render();
 
+	ImGui_ImplDX9_RenderDrawData(ImGui::GetDrawData());
+	
 	device->SetRenderState(D3DRS_COLORWRITEENABLE, old_d3drs_colorwriteenable);
 	device->SetRenderState(D3DRS_SRGBWRITEENABLE, true);
 	device->SetVertexDeclaration(vert_declaration);
